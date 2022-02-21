@@ -10,6 +10,11 @@ using UnityEngine;
 
 public class PlayerData : ScriptableObject
 {
+    
+    public int p_Health;
+
+
+
     private void Awake()
     {
         
