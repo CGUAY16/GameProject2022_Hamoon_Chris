@@ -864,7 +864,8 @@ GameObject:
   - component: {fileID: 741004835}
   - component: {fileID: 741004834}
   - component: {fileID: 741004833}
-  - component: {fileID: 741004836}
+  - component: {fileID: 741004837}
+  - component: {fileID: 741004838}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -965,7 +966,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &741004836
+--- !u!114 &741004837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -974,24 +975,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 741004832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349e1d7a7971a9743afa3c56999d5721, type: 3}
+  m_Script: {fileID: 11500000, guid: b47a5269e6004ea479a27b9128a9c503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSwitch:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 741004832}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &741004838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741004832}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2552894db0598734eb82c8eef3100d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delaySeconds: 3
 --- !u!1 &1057965075
 GameObject:
   m_ObjectHideFlags: 0

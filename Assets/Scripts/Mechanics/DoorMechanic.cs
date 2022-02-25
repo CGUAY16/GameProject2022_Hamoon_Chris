@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DoorMechanic : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class DoorMechanic : MonoBehaviour
 
     float openHeight = 1;
     float openduration = 1;
-    float closeduration = 5;
+    float closeduration = 2;
     bool isOpen;
     Vector2 targetPosition;
     Vector2 closeposition;
     Vector2 openposition;
 
+    bool isDoorMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -22,21 +24,19 @@ public class DoorMechanic : MonoBehaviour
         closeposition = transform.position;
         openposition = new Vector2(transform.position.x, transform.position.y + openHeight);
         isOpen = false;
+        Switch.switchTriggered += DoorController;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool click = Input.GetMouseButtonUp(0);
-        if (click)
-		{
-            DoorController();
-        }
+       
     }
 
     void DoorController()
 	{
-        StopAllCoroutines();
+        if (isDoorMoving)
+            return;
         if (isOpen)
 		{
             targetPosition = closeposition;
@@ -52,6 +52,7 @@ public class DoorMechanic : MonoBehaviour
 
     IEnumerator MoveDoor(Vector2 targetposition, float duration)
 	{
+        isDoorMoving = true;
         float timeElapsed = 0;
         Vector2 startPosition = transform.position;
             while (timeElapsed < duration)
@@ -61,6 +62,7 @@ public class DoorMechanic : MonoBehaviour
             yield return null;
         }
         transform.position = targetPosition;
+        isDoorMoving = false;
     }
 
 
