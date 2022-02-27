@@ -55,7 +55,7 @@ public class DoorMechanic : MonoBehaviour
         isDoorMoving = true;
         float timeElapsed = 0;
         Vector2 startPosition = transform.position;
-            while (timeElapsed < duration)
+        while (timeElapsed < duration)
         {
             transform.position = Vector2.Lerp(startPosition, targetPosition, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
