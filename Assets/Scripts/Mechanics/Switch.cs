@@ -29,7 +29,6 @@ public class Switch : MonoBehaviour
     protected virtual void OnSwitchTriggered(EventArgs e)
 	{
         switchTriggered?.Invoke();
-        Debug.Log("event raised");
 	}
 
 }
