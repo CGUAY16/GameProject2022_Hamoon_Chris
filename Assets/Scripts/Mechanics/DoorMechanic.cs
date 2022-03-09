@@ -8,15 +8,20 @@ public class DoorMechanic : MonoBehaviour
     //public GameObject door;
     //float force = 500;
 
-    float openHeight = 1;
-    float openduration = 1;
-    float closeduration = 2;
-    bool isOpen;
-    Vector2 targetPosition;
-    Vector2 closeposition;
-    Vector2 openposition;
+    [SerializeField] private float openHeight = 1;
+    [SerializeField] private float openduration = 1;
+    [SerializeField] private float closeduration = 2;
+    private bool isOpen;
+    private Vector2 targetPosition;
+    private Vector2 closeposition;
+    private Vector2 openposition;
 
-    bool isDoorMoving;
+    private bool isDoorMoving;
+
+    private void Awake()
+    {
+        Switch.switchTriggered += DoorController;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +29,9 @@ public class DoorMechanic : MonoBehaviour
         closeposition = transform.position;
         openposition = new Vector2(transform.position.x, transform.position.y + openHeight);
         isOpen = false;
-        Switch.switchTriggered += DoorController;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+	// Update is called once per frame
 
     void DoorController()
 	{
@@ -57,7 +57,8 @@ public class DoorMechanic : MonoBehaviour
         Vector2 startPosition = transform.position;
         while (timeElapsed < duration)
         {
-            transform.position = Vector2.Lerp(startPosition, targetPosition, timeElapsed / duration);
+            float t = Mathf.SmoothStep(0, 1, timeElapsed / duration);
+            transform.position = Vector2.Lerp(startPosition, targetPosition, t);
             timeElapsed += Time.deltaTime;
             yield return null;
         }
@@ -65,5 +66,8 @@ public class DoorMechanic : MonoBehaviour
         isDoorMoving = false;
     }
 
-
+    IEnumerator MoveDoorRB()
+	{
+        yield return null;
+	}
 }
