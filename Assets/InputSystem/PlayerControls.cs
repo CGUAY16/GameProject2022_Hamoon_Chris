@@ -24,21 +24,21 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Main Protag"",
+            ""name"": ""Player Base Controls"",
             ""id"": ""e57fd274-1932-43b1-ac17-7c0fca38a843"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""c7dbd55a-5e1e-4288-93fe-afa42fca474d"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""38a3e141-4877-4f9c-9d5e-38b49d046709"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -64,7 +64,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ActivateWallSwitch"",
+                    ""name"": ""ActivateSwitch"",
                     ""type"": ""Button"",
                     ""id"": ""07270a3e-6447-4820-9b69-9fd6ac0b0095"",
                     ""expectedControlType"": ""Button"",
@@ -80,15 +80,26 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ActivateWallSwitch"",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ActivateSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66d40dde-e828-43d4-b153-7b87ce474411"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ActivateSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""GamePad"",
                     ""id"": ""a2dd6a0b-baf4-4a30-80ee-d240871c59a9"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -97,45 +108,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""94600b79-216c-4b6b-9d8b-4f594ef450e5"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1d650d45-485d-4e4c-ac5a-9c91bba05745"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
+                    ""name"": ""Negative"",
                     ""id"": ""391739a0-b25e-40ec-ac92-30b476c01dbd"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Positive"",
                     ""id"": ""f2134369-98b5-4527-b675-80b5a137382a"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -143,7 +132,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""732594a2-de45-4cd2-9a37-aa341788a20e"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -152,45 +141,23 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""41d3b9c5-1bac-40c7-bd30-c3d084e9fec5"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""48cb9e03-3130-4c62-975c-e48ac3e52233"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
+                    ""name"": ""Negative"",
                     ""id"": ""95f7b0ba-7c1f-410c-9ecd-222482bae7d7"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Positive"",
                     ""id"": ""9c2e5b02-0d60-40c4-820d-3a9eab8a847c"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -201,7 +168,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27a86774-bb92-48ff-942e-11d595664006"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -212,7 +190,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6d61be04-476a-4a07-8808-a2aac9772b9f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -223,7 +212,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34b0764c-933d-4b59-8b5f-da3db51724a9"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
                     ""action"": ""Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -231,15 +231,43 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""KeyBoard & Mouse"",
+            ""bindingGroup"": ""KeyBoard & Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GamePad"",
+            ""bindingGroup"": ""GamePad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
-        // Main Protag
-        m_MainProtag = asset.FindActionMap("Main Protag", throwIfNotFound: true);
-        m_MainProtag_Movement = m_MainProtag.FindAction("Movement", throwIfNotFound: true);
-        m_MainProtag_Jump = m_MainProtag.FindAction("Jump", throwIfNotFound: true);
-        m_MainProtag_Attack = m_MainProtag.FindAction("Attack", throwIfNotFound: true);
-        m_MainProtag_Grapple = m_MainProtag.FindAction("Grapple", throwIfNotFound: true);
-        m_MainProtag_ActivateWallSwitch = m_MainProtag.FindAction("ActivateWallSwitch", throwIfNotFound: true);
+        // Player Base Controls
+        m_PlayerBaseControls = asset.FindActionMap("Player Base Controls", throwIfNotFound: true);
+        m_PlayerBaseControls_Movement = m_PlayerBaseControls.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerBaseControls_Jump = m_PlayerBaseControls.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerBaseControls_Attack = m_PlayerBaseControls.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerBaseControls_Grapple = m_PlayerBaseControls.FindAction("Grapple", throwIfNotFound: true);
+        m_PlayerBaseControls_ActivateSwitch = m_PlayerBaseControls.FindAction("ActivateSwitch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -296,49 +324,49 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Main Protag
-    private readonly InputActionMap m_MainProtag;
-    private IMainProtagActions m_MainProtagActionsCallbackInterface;
-    private readonly InputAction m_MainProtag_Movement;
-    private readonly InputAction m_MainProtag_Jump;
-    private readonly InputAction m_MainProtag_Attack;
-    private readonly InputAction m_MainProtag_Grapple;
-    private readonly InputAction m_MainProtag_ActivateWallSwitch;
-    public struct MainProtagActions
+    // Player Base Controls
+    private readonly InputActionMap m_PlayerBaseControls;
+    private IPlayerBaseControlsActions m_PlayerBaseControlsActionsCallbackInterface;
+    private readonly InputAction m_PlayerBaseControls_Movement;
+    private readonly InputAction m_PlayerBaseControls_Jump;
+    private readonly InputAction m_PlayerBaseControls_Attack;
+    private readonly InputAction m_PlayerBaseControls_Grapple;
+    private readonly InputAction m_PlayerBaseControls_ActivateSwitch;
+    public struct PlayerBaseControlsActions
     {
         private @PlayerControls m_Wrapper;
-        public MainProtagActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_MainProtag_Movement;
-        public InputAction @Jump => m_Wrapper.m_MainProtag_Jump;
-        public InputAction @Attack => m_Wrapper.m_MainProtag_Attack;
-        public InputAction @Grapple => m_Wrapper.m_MainProtag_Grapple;
-        public InputAction @ActivateWallSwitch => m_Wrapper.m_MainProtag_ActivateWallSwitch;
-        public InputActionMap Get() { return m_Wrapper.m_MainProtag; }
+        public PlayerBaseControlsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlayerBaseControls_Movement;
+        public InputAction @Jump => m_Wrapper.m_PlayerBaseControls_Jump;
+        public InputAction @Attack => m_Wrapper.m_PlayerBaseControls_Attack;
+        public InputAction @Grapple => m_Wrapper.m_PlayerBaseControls_Grapple;
+        public InputAction @ActivateSwitch => m_Wrapper.m_PlayerBaseControls_ActivateSwitch;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerBaseControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MainProtagActions set) { return set.Get(); }
-        public void SetCallbacks(IMainProtagActions instance)
+        public static implicit operator InputActionMap(PlayerBaseControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerBaseControlsActions instance)
         {
-            if (m_Wrapper.m_MainProtagActionsCallbackInterface != null)
+            if (m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnMovement;
-                @Jump.started -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnJump;
-                @Attack.started -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnAttack;
-                @Grapple.started -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnGrapple;
-                @Grapple.performed -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnGrapple;
-                @Grapple.canceled -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnGrapple;
-                @ActivateWallSwitch.started -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnActivateWallSwitch;
-                @ActivateWallSwitch.performed -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnActivateWallSwitch;
-                @ActivateWallSwitch.canceled -= m_Wrapper.m_MainProtagActionsCallbackInterface.OnActivateWallSwitch;
+                @Movement.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnMovement;
+                @Jump.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnJump;
+                @Attack.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnAttack;
+                @Grapple.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnGrapple;
+                @Grapple.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnGrapple;
+                @Grapple.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnGrapple;
+                @ActivateSwitch.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
+                @ActivateSwitch.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
+                @ActivateSwitch.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
             }
-            m_Wrapper.m_MainProtagActionsCallbackInterface = instance;
+            m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -353,19 +381,37 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Grapple.started += instance.OnGrapple;
                 @Grapple.performed += instance.OnGrapple;
                 @Grapple.canceled += instance.OnGrapple;
-                @ActivateWallSwitch.started += instance.OnActivateWallSwitch;
-                @ActivateWallSwitch.performed += instance.OnActivateWallSwitch;
-                @ActivateWallSwitch.canceled += instance.OnActivateWallSwitch;
+                @ActivateSwitch.started += instance.OnActivateSwitch;
+                @ActivateSwitch.performed += instance.OnActivateSwitch;
+                @ActivateSwitch.canceled += instance.OnActivateSwitch;
             }
         }
     }
-    public MainProtagActions @MainProtag => new MainProtagActions(this);
-    public interface IMainProtagActions
+    public PlayerBaseControlsActions @PlayerBaseControls => new PlayerBaseControlsActions(this);
+    private int m_KeyBoardMouseSchemeIndex = -1;
+    public InputControlScheme KeyBoardMouseScheme
+    {
+        get
+        {
+            if (m_KeyBoardMouseSchemeIndex == -1) m_KeyBoardMouseSchemeIndex = asset.FindControlSchemeIndex("KeyBoard & Mouse");
+            return asset.controlSchemes[m_KeyBoardMouseSchemeIndex];
+        }
+    }
+    private int m_GamePadSchemeIndex = -1;
+    public InputControlScheme GamePadScheme
+    {
+        get
+        {
+            if (m_GamePadSchemeIndex == -1) m_GamePadSchemeIndex = asset.FindControlSchemeIndex("GamePad");
+            return asset.controlSchemes[m_GamePadSchemeIndex];
+        }
+    }
+    public interface IPlayerBaseControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnGrapple(InputAction.CallbackContext context);
-        void OnActivateWallSwitch(InputAction.CallbackContext context);
+        void OnActivateSwitch(InputAction.CallbackContext context);
     }
 }
