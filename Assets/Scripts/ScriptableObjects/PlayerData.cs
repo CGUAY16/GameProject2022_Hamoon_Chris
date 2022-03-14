@@ -8,7 +8,7 @@ using UnityEngine;
  * 
  */
 
-[CreateAssetMenu(menuName = "PlayerData")]  
+[CreateAssetMenu(menuName = "PlayerData")]
 
 public class PlayerData : ScriptableObject
 {
@@ -16,8 +16,12 @@ public class PlayerData : ScriptableObject
     public int p_Health = 1;
     public float p_Speed;
     public float p_jumpForce;
+
+    [Header("Check Variables")]
     public bool p_FacesRight = default;
     public bool p_FacesLeft = default;
+    public bool isGrounded { get; set; } = default;
+    public bool isPlayerJumpin { get; set; } = default;
 
 
     public enum PlayerSideFacingState {Right, Left};
@@ -30,7 +34,7 @@ public class PlayerData : ScriptableObject
     }
 
 
-
+    // Checks state of the player
     public PlayerSideFacingState GetPlayerSideFacingState(PlayerSideFacingState state, bool facingRight, bool facingLeft, float movementParam)
     {
         if (facingRight && movementParam > 0)

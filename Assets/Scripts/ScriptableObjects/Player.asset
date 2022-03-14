@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   p_Health: 1
-  p_Speed: 10
-  p_FacesRight: 0
-  p_FacesLeft: 1
+  p_Speed: 5
+  p_jumpForce: 8
+  p_FacesRight: 1
+  p_FacesLeft: 0

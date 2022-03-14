@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,30 +7,42 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // Constants
-    private const float SMOOTH_TIME = 0.07f;
+    [SerializeField] private const float SMOOTH_TIME = 0.07f;
+    [SerializeField] private const float GRAV_MULTIPLIER = 2.0f;
+    [SerializeField] private const float SHORTHOP_GRAV_MULTIPLIER = 1.5f;
 
     // References
     private Rigidbody2D rb2d;
+    [SerializeField] BoxCollider2D playerFeetCol = default; // object needed to see if player's feet is on ground.
     [SerializeField] private PlayerData p_dataRef;
+    PlayerData.PlayerSideFacingState currentState = default;
 
     // Variables
     private float movementInputParam = default;
     private float jumpInputParam = default;
     private Vector2 zeroVector = Vector2.zero;
-    
-    PlayerData.PlayerSideFacingState currentState = default;
+
+    [Header("Ground Check Setup")]
+    [SerializeField] Transform playerFeetPoint = default;
+    [SerializeField] [Range(0, 1)] float playerFeetContactRange = 0.5f;
+    [SerializeField] LayerMask interableGroundLayer = default;
+
 
     private void Awake()
     {
+        // Caching
         rb2d = GetComponent<Rigidbody2D>();
 
-        // Checking state of face left and face right
+        /* Checking state of face left and face right, and sets up the other functions linked to this to work properly.*/
+        // 
         if (p_dataRef.p_FacesLeft == true && transform.localScale.x > 0)
         {
             Vector3 playerScale = transform.localScale;
             playerScale.x = playerScale.x * -1;
             transform.localScale = playerScale;
         }
+        // checks if both params faces left and right are the same value, which they shouldnt be.
+        // and sets the state to be according to player's current local scale.
         else if ( ((p_dataRef.p_FacesLeft && p_dataRef.p_FacesRight) == true) 
                     || ((p_dataRef.p_FacesLeft && p_dataRef.p_FacesRight) == false))
         {
@@ -58,28 +71,36 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        // Set isJumping to true if condition is met
+        if(jumpInputParam == 1 && IsOurPlayerOnGround(p_dataRef.isGrounded))
+        {
+            p_dataRef.isPlayerJumpin = true;
+        }
+    }
+
     private void FixedUpdate()
     {
-        // This handles player movement
-        if (movementInputParam > 0 || movementInputParam < 0)
-        {
-            Vector2 targetVelocity = new Vector2(movementInputParam * p_dataRef.p_Speed, rb2d.velocity.y);
-            rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref zeroVector, SMOOTH_TIME);
-        }
-        else if (movementInputParam == 0)
-        {
-            rb2d.velocity = Vector2.zero;
-            rb2d.angularVelocity = 0f;
-        }
+        MovePlayer();
         DoIFlipPlayer();
 
+        PlayerJump();
+        if (p_dataRef.isPlayerJumpin)
+        {
+            
+            p_dataRef.isPlayerJumpin = false;
+        }
 
+        IsOurPlayerOnGround(p_dataRef.isGrounded);
     }
 
     /*
-     * Functions for player input component.
-     * Serves to read input.
-     */
+    * -------------------------------------------------------
+    *                      PLAYER INPUT
+    * -------------------------------------------------------
+    */
+
 
     void OnMovement(InputValue movementValue)
     {
@@ -92,20 +113,29 @@ public class PlayerController : MonoBehaviour
     {
         jumpInputParam = jumpValue.Get<float>();
         //Debug.Log(jumpInputParam);
+        
+    }
 
-        // if player is on ground, activate function
-        PlayerJump();
+    /*
+     * ----------------------------------------------------------------
+     * MOVEMENT
+     * ----------------------------------------------------------------
+    */
+
+    private void MovePlayer()
+    {
+        Vector2 targetVelocity = new Vector2(movementInputParam * p_dataRef.p_Speed, rb2d.velocity.y);
+        rb2d.velocity = Vector2.SmoothDamp(rb2d.velocity, targetVelocity, ref zeroVector, SMOOTH_TIME);
     }
 
     /* 
      * ----------------------------------------------------------------
      * checks if player needs to be flipped based on movementInputParam
      * ----------------------------------------------------------------
-     */ 
+     */
     public void DoIFlipPlayer()
     {
         currentState = p_dataRef.GetPlayerSideFacingState(currentState, p_dataRef.p_FacesRight, p_dataRef.p_FacesLeft, movementInputParam);
-        //Debug.Log(currentState);
 
         // if player faces right, and wants to go left
         if(currentState == PlayerData.PlayerSideFacingState.Right && movementInputParam < 0 && (transform.localScale.x > 0))
@@ -135,8 +165,59 @@ public class PlayerController : MonoBehaviour
      * --------------------------------------------------------
      */
 
-    private void PlayerJump()
+    public void PlayerJump()
     {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpInputParam * p_dataRef.p_jumpForce);
+        if (p_dataRef.isPlayerJumpin)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpInputParam * p_dataRef.p_jumpForce);
+            p_dataRef.isPlayerJumpin = false;
+        }
+        
+        if(rb2d.velocity.y < 0) // when player reaches peak jump height, increases gravity for nice fall speed
+        {
+            //rb2d.velocity += Vector2.up * Physics2D.gravity.y * GRAV_MULTIPLIER * Time.fixedDeltaTime;
+            rb2d.gravityScale = 3;
+        }
+        else if(rb2d.velocity.y > 0 && jumpInputParam != 1) // if player lets go of jump before the peak jump height, he slows down.
+        {
+            //rb2d.velocity += Vector2.up * Physics2D.gravity.y * SHORTHOP_GRAV_MULTIPLIER * Time.fixedDeltaTime;
+            rb2d.gravityScale = 5;
+        }
     }
+
+    /*
+     * --------------------------------------------------------
+     *                      CHECK GROUND
+     * --------------------------------------------------------
+    */
+    private bool IsOurPlayerOnGround(bool result)
+    {
+        result = false;
+
+        Collider2D[] feetColliderContacts = Physics2D.OverlapCircleAll(playerFeetPoint.position, playerFeetContactRange, interableGroundLayer);
+
+        foreach (Collider2D col in feetColliderContacts)
+        {
+            if (col != playerFeetCol)
+            {
+                result = true;
+
+                if(rb2d.gravityScale > 1) // restores gravity scale back to one since gravity scale is changing when we are in the air.
+                {
+                    rb2d.gravityScale = 1;
+                }
+
+                return result;
+            }
+        }
+
+        return result;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(playerFeetPoint.position, playerFeetContactRange);
+    }
+
 }
