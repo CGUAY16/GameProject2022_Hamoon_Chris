@@ -9,7 +9,7 @@ using UnityEngine;
  * the count of specific collectable outside the scenes.
  */
 
-[CreateAssetMenu(menuName = " Collectable Type")]
+[CreateAssetMenu(menuName = "Collectable Type")]
 
 public class CollectableType : ScriptableObject
 {
