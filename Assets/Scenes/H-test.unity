@@ -3227,13 +3227,13 @@ HingeJoint2D:
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 2.34}
   m_ConnectedAnchor: {x: -0.54118085, y: 3.948536}
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
-    m_MotorSpeed: 5
+    m_MotorSpeed: 50
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
+    m_LowerAngle: 50
     m_UpperAngle: 120
 --- !u!114 &1227034260
 MonoBehaviour:
@@ -3247,7 +3247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691acf34cb7e6a44daa41097b648cc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMagnitude: 100
+  forceMagnitude: 500
 --- !u!1 &1350870140
 GameObject:
   m_ObjectHideFlags: 0

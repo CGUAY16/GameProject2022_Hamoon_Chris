@@ -13,14 +13,15 @@ public class Axe : MonoBehaviour
 	private void Awake()
 	{
 		Switch.switchTriggered += MoveAxe;
+		isAxeSwinging = false;
+		rb = GetComponent<Rigidbody2D>();
+		hangingPosition = transform.position;
 	}
 
 
 	void Start()
     {
-		isAxeSwinging = false;
-        rb = GetComponent<Rigidbody2D>();
-		hangingPosition = transform.position;
+		
     }
 
 
