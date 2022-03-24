@@ -23,14 +23,14 @@ public class PlayerData : ScriptableObject
     public bool isGrounded { get; set; } = default;
     public bool isPlayerJumpin { get; set; } = default;
 
-
     public enum PlayerSideFacingState {Right, Left};
 
 
 
     private void Awake()
     {
-        
+        p_FacesRight = true;
+        p_FacesLeft = false;
     }
 
 
@@ -50,6 +50,12 @@ public class PlayerData : ScriptableObject
             facingLeft = true;
         }
             
+        return state;
+    }
+
+    // normal get function for the state, returns an enum
+    public PlayerSideFacingState GetPlayerSideFacingState(PlayerSideFacingState state)
+    {
         return state;
     }
 
