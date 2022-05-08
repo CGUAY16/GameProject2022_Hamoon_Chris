@@ -18,45 +18,51 @@ public class PlayerData : ScriptableObject
     public float p_jumpForce;
 
     [Header("Check Variables")]
-    public bool p_FacesRight = default;
-    public bool p_FacesLeft = default;
-    public bool isGrounded { get; set; } = default;
-    public bool isPlayerJumpin { get; set; } = default;
+    public bool isGrounded = default;
+    public bool isPlayerJumpin = default;
 
-    public enum PlayerSideFacingState {Right, Left};
+    public enum PlayerXRotationState { Right, Left, IdleRight, IdleLeft };
+    public PlayerXRotationState currentFacingState = default;
 
-
+    public enum CharacterStateMachine { Normal, QuickSand };
+    public CharacterStateMachine currentCharacterState = default;
 
     private void Awake()
-    {
-        p_FacesRight = true;
-        p_FacesLeft = false;
-    }
+    {}
 
-
-    // Checks state of the player
-    public PlayerSideFacingState GetPlayerSideFacingState(PlayerSideFacingState state, bool facingRight, bool facingLeft, float movementParam)
+    public PlayerXRotationState GetPlayerXRotationState(GameObject playerObject, float movementParam)
     {
-        if (facingRight && movementParam > 0)
+        if(movementParam == 0)
         {
-            state = PlayerSideFacingState.Right;
-            facingRight = true;
-            facingLeft = false;
+            if(playerObject.transform.localScale.x > 0)
+            {
+                currentFacingState = PlayerXRotationState.IdleRight;
+                return currentFacingState;
+            }
+            else if(playerObject.transform.localScale.x < 0)
+            {
+                currentFacingState = PlayerXRotationState.IdleLeft;
+                return currentFacingState;
+            }
         }
-        else if (facingLeft && movementParam < 0)
+        else if (movementParam > 0 && playerObject.transform.localScale.x > 0)
         {
-            state = PlayerSideFacingState.Left;
-            facingRight = false;
-            facingLeft = true;
+            currentFacingState = PlayerXRotationState.Right;
+            return currentFacingState;
         }
-            
-        return state;
+        else if (movementParam < 0 && playerObject.transform.localScale.x < 0)
+        {
+            currentFacingState = PlayerXRotationState.Left;
+            return currentFacingState;
+        }
+
+        Debug.LogError("Function 'GetPlayerXRotationState' has not identified a correct state for the Player");
+        return currentFacingState;
     }
 
-    // normal get function for the state, returns an enum
-    public PlayerSideFacingState GetPlayerSideFacingState(PlayerSideFacingState state)
+    // get funct for movement state player is in
+    public CharacterStateMachine GetCurrentActionState()
     {
-        return state;
+        return currentCharacterState;
     }
-
 }

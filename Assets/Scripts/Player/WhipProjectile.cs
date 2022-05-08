@@ -13,7 +13,7 @@ public class WhipProjectile : MonoBehaviour
     PlayerController playerOB;
     [SerializeField] private WhipActionData whipData;
 
-    private bool activateWhipChecker = false;
+    private bool isWhipConnectedToCeiling = false;
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class WhipProjectile : MonoBehaviour
         
         if(jointLayerChecker != null)
         {
-            activateWhipChecker = true;
+            isWhipConnectedToCeiling = true;
             ActivateWhip();
         }
 
@@ -62,7 +62,7 @@ public class WhipProjectile : MonoBehaviour
     private void ActivateWhip()
     {
         //rb2d.velocity = new Vector2(0f,0f);
-        //rb2d.isKinematic = true;
+        rb2d.isKinematic = true;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         hinge.enabled = true;
         // set attached rigidbody to the player's RB

@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Player
   - Ground
+  - QuickSand
   - Wall
   - Whip
-  - 
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: ForeGround
     uniqueID: 1897987415
+    locked: 0
+  - name: Ui
+    uniqueID: 753816705
     locked: 0
