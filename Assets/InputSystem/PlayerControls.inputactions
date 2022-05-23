@@ -49,6 +49,51 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ShootingPistol",
+                    "type": "Button",
+                    "id": "e8a555d9-5df9-4f1d-bcd8-bb33ae26043f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateBullet1",
+                    "type": "Button",
+                    "id": "d6bdd346-9cdb-480f-a8c9-1c6b07ccec7f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateBullet2",
+                    "type": "Button",
+                    "id": "4dd9f616-b96b-421a-8839-6750c6880bd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateBullet3",
+                    "type": "Button",
+                    "id": "5032e072-5201-4704-a19b-3301ff1d34ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActivateBullet4",
+                    "type": "Button",
+                    "id": "12659ff5-7d39-4e21-a090-466de52e22c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -88,7 +133,7 @@
                 {
                     "name": "Negative",
                     "id": "391739a0-b25e-40ec-ac92-30b476c01dbd",
-                    "path": "<Gamepad>/dpad/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",
@@ -99,7 +144,7 @@
                 {
                     "name": "Positive",
                     "id": "f2134369-98b5-4527-b675-80b5a137382a",
-                    "path": "<Gamepad>/dpad/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",
@@ -187,7 +232,7 @@
                 {
                     "name": "",
                     "id": "415751aa-70f0-4356-8d79-0f54b1133133",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard & Mouse",
@@ -203,6 +248,116 @@
                     "processors": "",
                     "groups": "GamePad",
                     "action": "Grapple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af9824d4-ec19-4303-97b3-6308c370b5e5",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "KeyBoard & Mouse",
+                    "action": "ShootingPistol",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7805baae-16a8-4cc7-a3c9-ae9eeb48d323",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootingPistol",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "482448d6-ccce-49af-812e-692350f258f0",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard & Mouse",
+                    "action": "ActivateBullet1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82514ce8-b88e-4970-bc65-0eb9d7d1dfa3",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "ActivateBullet1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccc1dd82-6ab7-4519-b6c4-37672f3790a8",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard & Mouse",
+                    "action": "ActivateBullet2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9aa8b718-687d-47e3-98fb-2ce4a9275b78",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "ActivateBullet2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f747fff-431f-453d-b10f-49ae6ab3d48d",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard & Mouse",
+                    "action": "ActivateBullet3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d781492-b060-43c1-b7ba-5a3251b10a8e",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "ActivateBullet3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62f939d3-7c87-401e-8d24-302dbb81b1fe",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard & Mouse",
+                    "action": "ActivateBullet4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd99498a-aa1c-4b0b-b4dc-10d1c3beb55a",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "ActivateBullet4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcc5b60c19c8e34d8c3ab7cbc012721, type: 3}
+  m_Name: Freeze
+  m_EditorClassIdentifier: 
+  bulletImage: {fileID: 782689786, guid: 0eed5c920542f8a44b98f7aa50ad6ecd, type: 3}
+  bulletSpeed: 12
+  bulletCD: 0

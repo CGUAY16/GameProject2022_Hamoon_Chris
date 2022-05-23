@@ -71,6 +71,51 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootingPistol"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8a555d9-5df9-4f1d-bcd8-bb33ae26043f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateBullet1"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6bdd346-9cdb-480f-a8c9-1c6b07ccec7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateBullet2"",
+                    ""type"": ""Button"",
+                    ""id"": ""4dd9f616-b96b-421a-8839-6750c6880bd1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateBullet3"",
+                    ""type"": ""Button"",
+                    ""id"": ""5032e072-5201-4704-a19b-3301ff1d34ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateBullet4"",
+                    ""type"": ""Button"",
+                    ""id"": ""12659ff5-7d39-4e21-a090-466de52e22c8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,7 +155,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Negative"",
                     ""id"": ""391739a0-b25e-40ec-ac92-30b476c01dbd"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
@@ -121,7 +166,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Positive"",
                     ""id"": ""f2134369-98b5-4527-b675-80b5a137382a"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
@@ -209,7 +254,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""415751aa-70f0-4356-8d79-0f54b1133133"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard & Mouse"",
@@ -225,6 +270,116 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""GamePad"",
                     ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af9824d4-ec19-4303-97b3-6308c370b5e5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ShootingPistol"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7805baae-16a8-4cc7-a3c9-ae9eeb48d323"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootingPistol"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""482448d6-ccce-49af-812e-692350f258f0"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ActivateBullet1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82514ce8-b88e-4970-bc65-0eb9d7d1dfa3"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ActivateBullet1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccc1dd82-6ab7-4519-b6c4-37672f3790a8"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ActivateBullet2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aa8b718-687d-47e3-98fb-2ce4a9275b78"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ActivateBullet2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f747fff-431f-453d-b10f-49ae6ab3d48d"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ActivateBullet3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d781492-b060-43c1-b7ba-5a3251b10a8e"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ActivateBullet3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62f939d3-7c87-401e-8d24-302dbb81b1fe"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard & Mouse"",
+                    ""action"": ""ActivateBullet4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd99498a-aa1c-4b0b-b4dc-10d1c3beb55a"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ActivateBullet4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -268,6 +423,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_PlayerBaseControls_Attack = m_PlayerBaseControls.FindAction("Attack", throwIfNotFound: true);
         m_PlayerBaseControls_Grapple = m_PlayerBaseControls.FindAction("Grapple", throwIfNotFound: true);
         m_PlayerBaseControls_ActivateSwitch = m_PlayerBaseControls.FindAction("ActivateSwitch", throwIfNotFound: true);
+        m_PlayerBaseControls_ShootingPistol = m_PlayerBaseControls.FindAction("ShootingPistol", throwIfNotFound: true);
+        m_PlayerBaseControls_ActivateBullet1 = m_PlayerBaseControls.FindAction("ActivateBullet1", throwIfNotFound: true);
+        m_PlayerBaseControls_ActivateBullet2 = m_PlayerBaseControls.FindAction("ActivateBullet2", throwIfNotFound: true);
+        m_PlayerBaseControls_ActivateBullet3 = m_PlayerBaseControls.FindAction("ActivateBullet3", throwIfNotFound: true);
+        m_PlayerBaseControls_ActivateBullet4 = m_PlayerBaseControls.FindAction("ActivateBullet4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +492,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerBaseControls_Attack;
     private readonly InputAction m_PlayerBaseControls_Grapple;
     private readonly InputAction m_PlayerBaseControls_ActivateSwitch;
+    private readonly InputAction m_PlayerBaseControls_ShootingPistol;
+    private readonly InputAction m_PlayerBaseControls_ActivateBullet1;
+    private readonly InputAction m_PlayerBaseControls_ActivateBullet2;
+    private readonly InputAction m_PlayerBaseControls_ActivateBullet3;
+    private readonly InputAction m_PlayerBaseControls_ActivateBullet4;
     public struct PlayerBaseControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -341,6 +506,11 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerBaseControls_Attack;
         public InputAction @Grapple => m_Wrapper.m_PlayerBaseControls_Grapple;
         public InputAction @ActivateSwitch => m_Wrapper.m_PlayerBaseControls_ActivateSwitch;
+        public InputAction @ShootingPistol => m_Wrapper.m_PlayerBaseControls_ShootingPistol;
+        public InputAction @ActivateBullet1 => m_Wrapper.m_PlayerBaseControls_ActivateBullet1;
+        public InputAction @ActivateBullet2 => m_Wrapper.m_PlayerBaseControls_ActivateBullet2;
+        public InputAction @ActivateBullet3 => m_Wrapper.m_PlayerBaseControls_ActivateBullet3;
+        public InputAction @ActivateBullet4 => m_Wrapper.m_PlayerBaseControls_ActivateBullet4;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBaseControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +535,21 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ActivateSwitch.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
                 @ActivateSwitch.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
                 @ActivateSwitch.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateSwitch;
+                @ShootingPistol.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnShootingPistol;
+                @ShootingPistol.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnShootingPistol;
+                @ShootingPistol.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnShootingPistol;
+                @ActivateBullet1.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet1;
+                @ActivateBullet1.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet1;
+                @ActivateBullet1.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet1;
+                @ActivateBullet2.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet2;
+                @ActivateBullet2.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet2;
+                @ActivateBullet2.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet2;
+                @ActivateBullet3.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet3;
+                @ActivateBullet3.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet3;
+                @ActivateBullet3.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet3;
+                @ActivateBullet4.started -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet4;
+                @ActivateBullet4.performed -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet4;
+                @ActivateBullet4.canceled -= m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface.OnActivateBullet4;
             }
             m_Wrapper.m_PlayerBaseControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,6 +569,21 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @ActivateSwitch.started += instance.OnActivateSwitch;
                 @ActivateSwitch.performed += instance.OnActivateSwitch;
                 @ActivateSwitch.canceled += instance.OnActivateSwitch;
+                @ShootingPistol.started += instance.OnShootingPistol;
+                @ShootingPistol.performed += instance.OnShootingPistol;
+                @ShootingPistol.canceled += instance.OnShootingPistol;
+                @ActivateBullet1.started += instance.OnActivateBullet1;
+                @ActivateBullet1.performed += instance.OnActivateBullet1;
+                @ActivateBullet1.canceled += instance.OnActivateBullet1;
+                @ActivateBullet2.started += instance.OnActivateBullet2;
+                @ActivateBullet2.performed += instance.OnActivateBullet2;
+                @ActivateBullet2.canceled += instance.OnActivateBullet2;
+                @ActivateBullet3.started += instance.OnActivateBullet3;
+                @ActivateBullet3.performed += instance.OnActivateBullet3;
+                @ActivateBullet3.canceled += instance.OnActivateBullet3;
+                @ActivateBullet4.started += instance.OnActivateBullet4;
+                @ActivateBullet4.performed += instance.OnActivateBullet4;
+                @ActivateBullet4.canceled += instance.OnActivateBullet4;
             }
         }
     }
@@ -413,5 +613,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnGrapple(InputAction.CallbackContext context);
         void OnActivateSwitch(InputAction.CallbackContext context);
+        void OnShootingPistol(InputAction.CallbackContext context);
+        void OnActivateBullet1(InputAction.CallbackContext context);
+        void OnActivateBullet2(InputAction.CallbackContext context);
+        void OnActivateBullet3(InputAction.CallbackContext context);
+        void OnActivateBullet4(InputAction.CallbackContext context);
     }
 }
